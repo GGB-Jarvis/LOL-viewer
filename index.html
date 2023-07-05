@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="slider"></div>
+    </div>
+    <script src="js/script.js"></script>
+    <script>
+        window.onload = ()=>{
+            for(let i in data.data.Akali.skins) {
+                var item = document.createElement('div')
+                item.className = 'item'
+                item.style.background = `url(img/splash/${championName}_${data.data[championName].skins[i].num}.jpg)`
+                item.innerHTML = `
+                    <div class="content">
+                        <div class="name">${data.data[championName].skins[i].name}</div>
+                        <div class="des">${data.data[championName].lore}</div>
+                    </div>
+                `
+                document.querySelector('.slider').appendChild(item)
+            }
+        }
+        let current = 1;
+        // let sound = [
+        //     'static/sound/Akali_01.mp3',
+        //     'static/sound/Akali_02.mp3',
+        //     'static/sound/Akali_03.mp3',
+        //     'static/sound/Akali_04.mp3',
+        //     'static/sound/Akali_05.mp3',
+        //     'static/sound/Akali_06.mp3',
+        //     'static/sound/Akali_07.mp3'
+        // ]
+        // let audio = document.querySelector('audio')
+        setInterval(()=>{
+            current++;
+            let list = document.querySelectorAll('.item')
+            document.querySelector('.slider').appendChild(list[0])
+        },1000*5)
+    </script>
+</body>
+</html>
